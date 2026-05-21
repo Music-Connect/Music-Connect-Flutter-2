@@ -1,0 +1,43 @@
+name: music_connect_mobile
+description: Music Connect — Mobile App para Artistas e Contratantes
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # HTTP & Rede
+  http: ^1.6.0
+
+  # Estado
+  provider: ^6.1.2
+
+  # Persistência local
+  shared_preferences: ^2.3.2
+
+  # Internacionalização (moeda/data pt-BR)
+  intl: ^0.19.0
+
+  # Imagens com cache
+  cached_network_image: ^3.4.1
+
+  # Gráficos
+  fl_chart: ^0.69.0
+
+  # Fonte
+  google_fonts: ^6.2.1
+
+  # Ícones extras
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
