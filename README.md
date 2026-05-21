@@ -21,6 +21,18 @@ Music Connect Mobile is a Flutter application built to bridge the gap between mu
 - Modern UI for the user profile featuring a gradient header, overlapping avatar, and tab-based organization (About / Portfolio).
 - Comprehensive edit mode featuring field validation (e.g., minimum character length, state abbreviation formatting, phone number patterns).
 
+## System Flow & Backend Integration
+
+This application relies on the **Music Connect Backend** (Node.js/Fastify) to function properly. 
+The system flow works as follows:
+
+1. **Authentication**: When a user registers or logs in, the app makes an HTTP request to the backend. The backend uses Better Auth to validate the credentials and responds with an HTTP-only session cookie.
+2. **Session Persistence**: On the web, the browser automatically stores this cookie. The Flutter app uses a custom HTTP client with `withCredentials = true` so the browser attaches the session cookie to every subsequent request.
+3. **Data Fetching**: Screens like Dashboard, Explore, and Profile fetch data directly from the backend API.
+4. **Interactive Flows (e.g., Proposals)**: When a contractor sends a proposal, the mobile app sends a POST request to the backend, which validates the payload via Prisma and records the proposal. The target artist can then fetch their received proposals and update their status (accept/reject).
+
+*Note: For everything to work, both the Backend API and the Flutter application must be running simultaneously.*
+
 ## Architecture & Technologies
 
 - **Framework**: Flutter (compatible with Android, iOS, and Web).
